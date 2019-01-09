@@ -23,7 +23,6 @@
 							<div class="inner">
 								<h1>David P. Fleming</h1>
 								<p>PhD Candidate <br> NESSF Fellow <br> University of Washington Astronomy Department</p>
-								<p><a href="images/DavidFlemingCV.pdf" target="_blank">Cirriculum Vitae</a></p>
 								<img src="images/APO_2015.JPG" width="560px">
 							</div>
 						</div>
@@ -31,7 +30,6 @@
 							<ul>
 								<li><a href="#aboutme">About Me</a></li>
 								<li><a href="#research">Research</a></li>
-								<li><a href="#community">Community</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
@@ -55,18 +53,6 @@
 									sports or playing foosball.
 								</p>
 								<!-- <span class="image main"><img src="images/pic01.jpg" alt="" /></span> -->
-								<p><b>Research Interests:</b>
-									<p> As a member of the UW eScience Institute’s Integrative Graduate
-										Education and Research Traineeship (IGERT) in Big Data and Data
-										Science, I work on dealing with the large parameter space required
-										to accurately model exoplanet systems using the code VPLANET
-										(see Barnes et al. 2016).  The massive parameter space afforded
-										by VPLANET’s inclusion of numerous physical modules ranging from
-										atmospheric escape to orbital dynamics necessitates the use machine
-										learning techniques to analyze the output of a large number of
-										simulations and to intelligently traverse this parameter space.
-									</p>
-								</p>
 								<p><b>Education:</b>
 									<p>
 										I graduated from the University of Notre Dame in 2014 with a
@@ -141,17 +127,59 @@
 								<img src="images/m1perturb.png" width="720px">
 								</p>
 								<p><a href="http://adsabs.harvard.edu/abs/2017MNRAS.464.3343F">Check out the MNRAS paper, Fleming & Quinn (2017), here!</a></p>
+
+								<p><b>approxposterior: machine learning stellar and exoplanet dynamics</b><br></p>
+								<p>
+									<p><a href="https://github.com/dflemin3/approxposterior">The code is open-source and publicly available on GitHub!</a></p>
+
+									A common task in science or data analysis is to perform Bayesian
+									inference to derive a posterior probability distribution for
+									 model parameters conditioned on some observed data with uncertainties.
+									 In astronomy, for example, it is common to fit for the stellar
+									 and planetary radii from observations of stellar fluxes as a
+									 function of time using the Mandel & Agol (2002) transit model.
+									 Typically, one can derive posterior distributions for model
+									 parameters using Markov Chain Monte Carlo (MCMC) techniques
+									 where each MCMC iteration, one computes the likelihood of the
+									 data given the model parameters. One must run the forward model
+									 to make predictions to be compared against the observations
+									 and their uncertainties to compute the likelihood. MCMC chains
+									 can require anywhere from 10,000 to over 1,000,000 likelihood
+									 evaluations, depending on the complexity of the model and the
+									 dimensionality of the problem. When one uses a slow forward model,
+									 one that takes minutes to run, running an MCMC analysis quickly
+									 becomes very computationally expensive. In this case,
+									 approximate techniques are requires to compute Bayesian posterior
+									 distributions in a reasonable amount of time by minimizing
+									 the number of forward model evaluations.
+								 </p>
+								 <p>
+									 I am the lead developer of approxposterior, a Python
+									 implementation of Bayesian Active Learning for Posterior
+									 Estimation by Kandasamy et al. (2015) and Adaptive Gaussian
+									 process approximation for Bayesian inference with expensive
+									 likelihood functions by Wang & Li (2017). These algorithms
+									 allows the user to compute approximate posterior probability
+									 distributions using computationally expensive forward models
+									 by training a Gaussian Process (GP) surrogate for the likelihood
+									 evaluation. The algorithms leverage the inherent uncertainty
+									 in the GP's predictions to identify high-likelihood regions
+									 in parameter space where the GP is uncertain. The algorithms
+									 then run the forward model at these points to compute their
+									 likelihood and re-trains the GP to maximize the GP's predictive
+									 ability while minimizing the number of forward model evaluations.
+									 Check out Bayesian Active Learning for Posterior Estimation by
+									 Kandasamy et al. (2015) and Adaptive Gaussian process
+									 approximation for Bayesian inference with expensive likelihood
+									 functions by Wang & Li (2017) for in-depth descriptions of the respective algorithms.
+								 </p>
+								 <p>
+								<img src="images/approx.png" width="480px">
+								</p>
 								<p><b>Publications:</b> <a href="http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?return_req=no_params&author=Fleming,%20David%20P.&db_key=AST">Click here for all of David's publications on ADS</a></p>
 							</article>
 
 						<!-- About -->
-							<article id="community">
-								<h2 class="major">Community</h2>
-								<!-- <span class="image main"><img src="images/pic03.jpg" alt="" /></span> -->
-                                                                <p><b>Teaching:</b></p>
-                                                                <p><b>Outreach:</b></p>
-                                                                <p><b>Equity & Inclusion:</b></p>
-							</article>
 
 						<!-- Contact -->
 							<article id="contact">
